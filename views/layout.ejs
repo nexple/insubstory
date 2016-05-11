@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Super Awesome</title>
+
+<!-- CSS (load bootstrap from a CDN) -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<style>
+    body    { padding-top:50px; }
+</style>
+<body>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Passport-Facebook Example</title>
+	</head>
+	<body>
+		<% if (!user) { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/login">Log In</a>
+			</p>
+		<% } else { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/account">Account</a> | 
+			<a href="/logout">Log Out</a>
+			</p>
+		<% } %>
+		<%- body %>
+	</body>
+</html>
+
+testfdfd
+          <%= title %>
+    <p>name : <%= name %></p>
+	
+ 
+ <a href="/auth/google">google login</a>
+<% if (user.id) { %>
+  <a href="/logout">logout</a>
+  <%=user.displayName%>
+<% } %>
+
+
+<form action="/login" method="post" onsubmit="return onWriteSubmit()">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="name" />
+        <br/>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+	
+</body>
+</html>

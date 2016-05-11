@@ -1,0 +1,21 @@
+{
+  "name": "Insubstory",
+  "version": "0.0.1",
+  "description": "A chat example to showcase how to use `socket.io` with a static `express` server",
+  "main": "web.js",
+  "repository": "",
+  "author": "jaeho lee <leeho94@naver.com>",
+    "oauth": {
+    "facebook": {
+      "FACEBOOK_APP_ID":  "835876796452399",
+      "FACEBOOK_APP_SECRET": "6f854bf58311bb9a60ba081a98c7cfd9",
+      "callbackURL": "http://www.insubstory.com/auth/facebook/callback"
+    }
+  }pendencies": {
+    "async": "~0.2.8",
+    "backbone": "^1.2.3",
+    "ejs": "^2.3.3",
+    "express": "~3.2.4",
+    "socket.io": "~0.9.14"
+  }
+}

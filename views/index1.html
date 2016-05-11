@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="kr" ng-app>
+  <head>
+    <title>인서브 스토리</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+					 
+	<script src="/socket.io/socket.io.js"></script>
+   
+	<script src="/js/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file /lib에서 /js로 바꿈..css가 안되서 버튼 이미지가 않나왔음
+ <script wwsrc="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+	-->
+<link href="/js/jquery.bxslider.css" rel="stylesheet" />
+
+  
+    
+    <style>
+   
+      #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+      
+	  @font-face {
+								font-family:'NanumGothic';
+								src: url('images/NanumGothic.eot');
+								src: url('images/NanumGothic.eot?#iefix') format('embedded-opentype'),
+									 url('images/NanumGothic.woff') format('woff'),
+									 url('images/NanumGothic.ttf') format('truetype');
+								font-weight: normal;
+								font-style: normal;
+							 }
+      body {
+				
+				padding-top: 60px;
+				font-family:'맑은고딕' 'NanumGothic', 'MalgunGothic';		
+				padding-left: 100px;
+				padding-right: 100px;
+				width: 1000px;
+		}
+    </style>
+    
+  
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+	          <a href="/" title="insubstory"> 
+ 		   
+                          <img src="/img/insubstory3.png" alt="insubstory.com" width="327" height="109"></a>
+						
+          <div class="pull-right">
+		
+		     <a href="/ebook" class="brand">전자책(EPUB) </a>
+			 <a href="http://cafe.naver.com/jhbks" class="brand">전자책 제작 커뮤니티 </a>
+		     <a href="/blog" class="brand">블로그  모음</a>
+			 <a href="/service" class="brand">웹서비스 모음</a>
+			 <a href="https://www.facebook.com/insubstory" class="brand">페이스북  페이지</a>  
+			 <a href="/download" class="brand">다운로드 </a>		
+			 <br>
+			 
+          </div>
+        </div>
+      </div>					
+      <div class="page-header">
+	  <br><br><br>
+	  
+	  <center>
+	  전자책 검색엔진(PDF,EPUB)
+						 <div id='cse' style='width: 70%;'>Loading</div>
+					<script src='//www.google.com/jsapi' type='text/javascript'></script>
+					<script type='text/javascript'>
+					google.load('search', '1', {language: 'ko', style: google.loader.themes.V2_DEFAULT});
+					google.setOnLoadCallback(function() {
+					  var customSearchOptions = {};
+					  var orderByOptions = {};
+					  orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+					  customSearchOptions['enableOrderBy'] = true;
+					  customSearchOptions['orderByOptions'] = orderByOptions;
+					  var imageSearchOptions = {};
+					  imageSearchOptions['layout'] = 'google.search.ImageSearch.LAYOUT_POPUP';
+					  customSearchOptions['enableImageSearch'] = true;
+					  customSearchOptions['overlayResults'] = true;
+					  var customSearchControl =   new google.search.CustomSearchControl('007273632919147557021:ubwpokpmfta', customSearchOptions);
+					  customSearchControl.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+					  var options = new google.search.DrawOptions();
+					  options.setAutoComplete(true);
+					  customSearchControl.draw('cse', options);
+					}, true);
+					</script>
+					<style type='text/css'>
+					  .gsc-control-cse {
+						font-family: Arial, sans-serif;
+						border-color: #FFFFFF;
+						background-color: #FFFFFF;
+					  }
+					  .gsc-control-cse .gsc-table-result {
+						font-family: Arial, sans-serif;
+					  }
+					  input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+						border-color: #D9D9D9;
+					  }
+					  input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+						border-color: #666666;
+						background-color: #CECECE;
+						background-image: none;
+						filter: none;
+
+					  }
+					  .gsc-tabHeader.gsc-tabhInactive {
+						border-color: #FF9900;
+						background-color: #FFFFFF;
+					  }
+					  .gsc-tabHeader.gsc-tabhActive {
+						border-color: #E9E9E9;
+						background-color: #E9E9E9;
+						border-bottom-color: #FF9900
+					  }
+					  .gsc-tabsArea {
+						border-color: #FF9900;
+					  }
+					  .gsc-webResult.gsc-result, .gsc-results .gsc-imageResult {
+						border-color: #FFFFFF;
+						background-color: #FFFFFF;
+					  }
+					  .gsc-webResult.gsc-result:hover, .gsc-imageResult:hover {
+						border-color: #FFFFFF;
+						background-color: #FFFFFF;
+					  }
+					  .gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b  {
+						color: #0000CC;
+					  }
+					  .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b {
+						color: #0000CC;
+					  }
+					  .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b {
+						color: #0000CC;
+					  }
+					  .gs-webResult.gs-result a.gs-title:active, .gs-webResult.gs-result a.gs-title:active b, .gs-imageResult a.gs-title:active, .gs-imageResult a.gs-title:active b {
+						color: #0000CC;
+					  }
+					  .gsc-cursor-page {
+						color: #0000CC;
+					  }
+					  a.gsc-trailing-more-results:link {
+						color: #0000CC;
+					  }
+					  .gs-webResult .gs-snippet, .gs-imageResult .gs-snippet, .gs-fileFormatType {
+						color: #000000;
+					  }
+					  .gs-webResult div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
+						color: #008000;
+					  }
+					  .gs-webResult div.gs-visibleUrl-short {
+						color: #008000;
+					  }
+					  .gs-webResult div.gs-visibleUrl-short  {
+						display: none;
+					  }
+					  .gs-webResult div.gs-visibleUrl-long {
+						display: block;
+					  }
+					  .gs-promotion div.gs-visibleUrl-short {
+						display: none;
+					  }
+					  .gs-promotion div.gs-visibleUrl-long  {
+						display: block;
+					  }
+					  .gsc-cursor-box {
+						border-color: #FFFFFF;
+					  }
+					  .gsc-results .gsc-cursor-box .gsc-cursor-page {
+						border-color: #E9E9E9;
+						background-color: #FFFFFF;
+						color: #0000CC;
+					  }
+					  .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+						border-color: #FF9900;
+						background-color: #FFFFFF;
+						color: #0000CC;
+					  }
+					  .gsc-webResult.gsc-result.gsc-promotion {
+						border-color: #336699;
+						background-color: #FFFFFF;
+					  }
+					  .gsc-completion-title {
+						color: #0000CC;
+					  }
+					  .gsc-completion-snippet {
+						color: #000000;
+					  }
+					  .gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link  {
+						color: #0000CC;
+					  }
+					  .gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited {
+						color: #0000CC;
+					  }
+					  .gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover  {
+						color: #0000CC;
+					  }
+					  .gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active {
+						color: #0000CC;
+					  }
+					  .gs-promotion .gs-snippet, .gs-promotion .gs-title .gs-promotion-title-right, .gs-promotion .gs-title .gs-promotion-title-right * {
+						color: #000000;
+					  }
+					  .gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short  {
+						color: #008000;
+					  }
+					</style>
+
+	  <body background="/img/paper.jpg">
+	  <h4><인덱스><br>     
+	  	
+		      <a href="http://www.insubstory.com/kdata/index_ㄱ.html" class="brand">ㄱ</a> |
+		     <a href="http://www.insubstory.com/kdata/index_ㄴ.html" class="brand">ㄴ</a> |
+		     <a href="http://www.insubstory.com/kdata/index_ㄷ.html" class="brand">ㄷ</a> |
+		     <a href="http://www.insubstory.com/kdata/index_ㄹ.html" class="brand">ㄹ</a> |
+			 <a href="http://www.insubstory.com/kdata/index_ㅁ.html" class="brand">ㅁ</a> |
+			 <a href="http://www.insubstory.com/kdata/index_ㅂ.html" class="brand">ㅂ</a>|
+			 <a href="http://www.insubstory.com/kdata/index_ㅅ.html" class="brand">ㅅ</a> |
+			 <a href="http://www.insubstory.com/kdata/index_ㅇ.html" class="brand">ㅇ</a> |
+			 <a href="http://www.insubstory.com/kdata/index_ㅈ.html" class="brand">ㅈ</a> |
+		     <a href="http://www.insubstory.com/kdata/index_ㅊ.html" class="brand">ㅊ</a> |
+		     <a href="http://www.insubstory.com/kdata/index_ㅌ.html" class="brand">ㅌ</a> |
+		     <a href="http://www.insubstory.com/kdata/index_ㅍ.html" class="brand">ㅍ</a> |
+			 <a href="http://www.insubstory.com/kdata/index_ㅎ.html" class="brand">ㅎ </a><br>	</h4>
+	   </center>
+	   <center>
+	   <h4> <index><br>		
+		      <a href="http://www.insubstory.com/data/index_a.html" class="brand">A</a> |
+		     <a href="http://www.insubstory.com/data/index_b.html" class="brand">B</a> |
+		     <a href="http://www.insubstory.com/data/index_c.html" class="brand">C</a> |
+		     <a href="http://www.insubstory.com/data/index_d.html" class="brand">D</a> |
+		   	<a href="http://www.insubstory.com/data/index_e.html" class="brand">E</a> |
+			 <a href="http://www.insubstory.com/data/index_f.html" class="brand">F</a> |
+			 <a href="http://www.insubstory.com/data/index_g.html" class="brand">G</a> |
+ 			 <a href="http://www.insubstory.com/data/index_h.html" class="brand">H</a> |
+			 <a href="http://www.insubstory.com/data/index_i.html" class="brand">I</a> |
+		     <a href="http://www.insubstory.com/data/index_j.html" class="brand">J</a> |
+		     <a href="http://www.insubstory.com/data/index_k.html" class="brand">K</a> |
+		     <a href="http://www.insubstory.com/data/index_l.html" class="brand">L</a></br>
+		     <a href="http://www.insubstory.com/data/index_m.html" class="brand">M</a> |	
+			 <a href="http://www.insubstory.com/data/index_n.html" class="brand">N</a> |
+             <a href="http://www.insubstory.com/data/index_o.html" class="brand">O</a> |
+			 <a href="http://www.insubstory.com/data/index_p.html" class="brand">P</a> |
+		     <a href="http://www.insubstory.com/data/index_q.html" class="brand">Q</a> |
+		     <a href="http://www.insubstory.com/data/index_r.html" class="brand">R</a> |
+		     <a href="http://www.insubstory.com/data/index_s.html" class="brand">S</a> |
+		     <a href="http://www.insubstory.com/data/index_t.html" class="brand">T</a>	 |
+			 <a href="http://www.insubstory.com/data/index_u.html" class="brand">U</a>	| 
+             <a href="http://www.insubstory.com/data/index_v.html" class="brand">V</a> |
+			 <a href="http://www.insubstory.com/data/index_w.html" class="brand">W</a> |
+		     <a href="http://www.insubstory.com/data/index_x.html" class="brand">X</a> |
+		     <a href="http://www.insubstory.com/data/index_y.html" class="brand">Y</a> |
+		     <a href="http://www.insubstory.com/data/index_z.html" class="brand">Z</a></br></h4>
+			 <br>
+			 나라별
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">한국 </a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">아메리카 </a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">아시아</a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">남미   </a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">유럽  </a><BR>
+		 출판 연도별 분류
+		 	  <a href="http://www.insubstory.com/data/index_y.html" class="brand">10세기 이전  </a>
+			 
+			 <a href="http://www.insubstory.com/data/index_y.html" class="brand">10~18세기 </a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">19세기 </a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">20세기</a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">21세기   </a> <BR>
+			  
+				라이센스별 분류
+		 	  <a href="http://www.insubstory.com/data/index_y.html" class="brand">CCK  </a>
+			 
+			 <a href="http://www.insubstory.com/data/index_y.html" class="brand">무료  </a> 
+			  
+			  <a href="http://www.insubstory.com/data/index_y.html" class="brand">유료 </a> 
+			  
+
+					<h3>전자책  <br>
+			  	    <a href="/bookbug" class="brand">책벌레 </a><br>
+				    <a href="/geek" class="brand">과학소설  </a><br>
+					<a href="/familyedu" class="brand">가정교육 </a><br>			   
+	     	   	    <a href="/classic" class="brand">클래식/고전 </a><br>			   
+		    	    <a href="/now" class="brand">현대/대중문화 </a><br>
+				   
+					</h3>
+					
+					
+					<h3>				
+						   <a href="/review" class="brand">리뷰 </a><br>
+							<a href="/bookpod" class="brand">독서방송</a><br>
+						   <a href="/remake" class="brand">리메이크</a><br>
+						   <a href="/story" class="brand">단편 </a><br>
+						   <a href="/novel" class="brand">장편 </a><br>
+						    <a href="/template" class="brand">소설 템플릿 </a><br>
+				        	<a href="/blog" class="brand">블로그  모음</a><br>
+					        <a href="/service" class="brand">웹서비스 모음</a>
+		      
+		   <br>
+
+   			  
+      </center>     
+   
+        
+        <script src
+    <div class="container" ng-controller="ChatController">
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <div class="pull-right">
+             <a href="http://www.nexple.net" class="brand">넥스플</a>
+          </div>
+        </div>
+      </div>
+<div class="layout">			
+						
+
+
+	  
+	   
+	
+</div>
+     
+	 
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery.min.js">  //jquery version 2.0</script> 
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+  </body>
+</html>

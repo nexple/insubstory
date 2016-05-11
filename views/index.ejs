@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Super Awesome</title>
+<!-- CSS (load bootstrap from a CDN) -->
+
+<body>
+
+<% if (!user) { %>
+	<h2>Welcome! Please log in.</h2>
+<% } else { %>
+	<h2>Hello, <%= user.username %>.</h2>
+<% } %>
+
+
+<a href="/auth/facebook"><img src="login-with-facebook.png" width="154" height="22"></a>
+
+test
+   title <%= title %>
+   
+<p><%= rows[0].nid %></p>
+
+<p><%= rows[0].name %></p>
+
+<p><%= rows[0].password %></p>
+
+<p><%= rows[0].level %></p>
+
+<p><%= rows[0].date %></p>
+
+<p><%= rows[0].time %></p>
+
+</body>
+</html>
