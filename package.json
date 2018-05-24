@@ -5,13 +5,7 @@
   "main": "web.js",
   "repository": "",
   "author": "jaeho lee <leeho94@naver.com>",
-    "oauth": {
-    "facebook": {
-      "FACEBOOK_APP_ID":  "835876796452399",
-      "FACEBOOK_APP_SECRET": "6f854bf58311bb9a60ba081a98c7cfd9",
-      "callbackURL": "http://www.insubstory.com/auth/facebook/callback"
-    }
-  }pendencies": {
+   dependencies": {
     "async": "~0.2.8",
     "backbone": "^1.2.3",
     "ejs": "^2.3.3",
