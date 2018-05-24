@@ -4,8 +4,8 @@
   "description": "A chat example to showcase how to use `socket.io` with a static `express` server",
   "main": "web.js",
   "repository": "",
-  "author": "jaeho lee <leeho94@naver.com>"
-   dependencies": {
+  "author": "jaeho lee <leeho94@naver.com>",
+   "dependencies": {
     "async": "~0.2.8",
     "backbone": "^1.2.3",
     "ejs": "^2.3.3",
